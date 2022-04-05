@@ -2,14 +2,13 @@ import getRandomInt from "../utilities/utilities.js";
 
 class Character {
     // le constructor recoit en arguments des parametres de l'instanciation de la class
-    constructor(name, healthPoints, attackPoints, defensePoints, magicPoints, deathFunction){
+    constructor(name, healthPoints, attackPoints, defensePoints, magicPoints){
         this.name = name
         this.healthPoints = healthPoints;
         this.attackPoints = attackPoints;
         this.defensePoints = defensePoints;
         this.magicPoints = magicPoints;
         this.isDefending = false;
-        this.deathFunction = deathFunction;
     }
 
     get currentHealthPoints(){
@@ -18,11 +17,6 @@ class Character {
 
     set currentHealthPoints(newHealthPoints){
         this.healthPoints = newHealthPoints;
-        if(this.healthPoints <= 0){
-            console.log(`${this.name} perished !`);
-            this.deathFunction();
-            return;
-        }
         console.log(`${this.name} has ${this.healthPoints} left`);
     }
 
@@ -47,6 +41,8 @@ class Character {
 
     set currentDefensePoints(newDefensePoints){
         this.defensePoints = newDefensePoints;
+        if(this.defensePoints > 20)
+            this.defensePoints = 20;
         if(this.defensePoints < 0)
             this.defensePoints = 0;
         console.log(`${this.name} now has ${this.defensePoints} defense points  .`);
@@ -67,9 +63,9 @@ class Character {
     }
 
     defend(){
-        let formerdefensePoints = this.defensePoints;
-        this.defensePoints += 1 + getRandomInt(9);
-        console.log(`${this.name} increased its defense from ${formerdefensePoints} to ${this.defensePoints}`);
+        let formerdefensePoints = this.currentDefensePoints;
+        this.currentDefensePoints += 1 + getRandomInt(9);
+        console.log(`${this.name} increased its defense from ${formerdefensePoints} to ${this.currentDefensePoints}`);
     }
 
     spell(attackedCharacter){
