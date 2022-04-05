@@ -1,9 +1,12 @@
 import Programm from "./class/programm.class.js"
 import Character from "./class/character.class.js"
+import Logs from "./class/logs.class.js"
 
-const hero = new Character("hero", 200, 35, 10, 150);
-const dragon = new Character("dragon", 250, 20, 15, 100);
-let programm = new Programm(hero, dragon);
+const logs = new Logs();
+const hero = new Character("hero", 200, 35, 10, 150, logs);
+const dragon = new Character("dragon", 250, 20, 15, 100, logs);
+const programm = new Programm(hero, dragon, logs);
+programm.display();
 
 
 // dans le constructor:
