@@ -1,0 +1,36 @@
+#hero{
+    height: 300px;
+    margin-bottom: auto;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#monster{
+    height: 300px;
+    padding-left: 600px;
+}
+
+#ctn-pictures{
+    width: 90%;
+    height: 400px;
+    margin: 5%;
+    border: solid;
+}
+
+#ctn-logs   {
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 150px;
+    width: 90%;
+    margin: 5%;
+    border: solid;
+}
+
+#ctn-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    height: 40px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
